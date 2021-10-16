@@ -11,9 +11,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class CocktailActivity extends AppCompatActivity {
-    private TextView mNameTextView;
-    private ListView mListView;
+//    private TextView mNameTextView;
+//    private ListView mListView;
+
+    @BindView(R.id.nameTextView) TextView mNameTextView;
+    @BindView(R.id.listView) ListView mListView;
+
 
 
 
@@ -27,9 +34,10 @@ public class CocktailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cocktail);
+        ButterKnife.bind(this);
 
-        mListView = (ListView) findViewById(R.id.listView);
-        mNameTextView = (TextView) findViewById(R.id.nameTextView);
+//        mListView = (ListView) findViewById(R.id.listView);
+//        mNameTextView = (TextView) findViewById(R.id.nameTextView);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cocktails);
         mListView.setAdapter(adapter);
