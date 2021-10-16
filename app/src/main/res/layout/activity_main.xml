@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/mainpic" />
+        app:srcCompat="@drawable/mainfour" />
 
     <TextView
         android:id="@+id/textView"
@@ -20,6 +20,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
+        android:textStyle="bold"
+        android:textSize="40sp"
         android:textColor="@color/colorAmber"
         android:text="Cocktail Lush" />
 
@@ -30,7 +32,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Find Cocktails"
-        android:background="@color/colorBlue"/>
+        android:backgroundTint="@color/colorAmber"
+        android:textColor="@color/black" />
 
 
 </RelativeLayout>
