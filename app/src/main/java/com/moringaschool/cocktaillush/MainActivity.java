@@ -8,12 +8,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import butterknife.BindView;
 
 public class MainActivity extends AppCompatActivity {
   //  public static final String TAG = MainActivity.class.getSimpleName();
-    private Button mFindCocktailButton;
-    private EditText mNameEditText;
+//    private Button mFindCocktailButton;
+//    private EditText mNameEditText;
+//    private TextView mAppNameTextView;
+    @BindView(R.id. mFindCocktailButton) Button  mFindCocktailButton;
+    @BindView(R.id.mNameEditText) EditText mNameEditText;
+    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         mNameEditText = (EditText) findViewById(R.id.nameEditText);
         mFindCocktailButton = (Button)findViewById(R.id.findCocktailButton);
+        mAppNameTextView = (TextView) findViewById(R.id.appNameTextView);
 
         mFindCocktailButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -20,10 +20,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:textStyle="bold"
-        android:textSize="40sp"
+        android:text="Cocktail Lush"
+        android:fontFamily="@font/roboto_bold"
         android:textColor="@color/colorAmber"
-        android:text="Cocktail Lush" />
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/nameEditText"
