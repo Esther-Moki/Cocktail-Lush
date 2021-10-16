@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="25dp"
         android:text="Cocktail Lush"
         android:fontFamily="@font/roboto_bold"
         android:textColor="@color/colorAmber"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/colorAmber"
+        android:backgroundTint="@color/colorBlue"
         android:text="Find Cocktails"
         android:textSize="30sp"
         android:textColor="@color/black" />
