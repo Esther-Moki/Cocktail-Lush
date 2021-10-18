@@ -1,5 +1,6 @@
 package com.moringaschool.cocktaillush;
 
+import static com.moringaschool.cocktaillush.Constants.YELP_API_KEY;
 import static com.moringaschool.cocktaillush.Constants.YELP_BASE_URL;
 
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class CocktailDbClient {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
                             Request newRequest  = chain.request().newBuilder()
-                                   // .addHeader("Authorization", YELP_API_KEY)
+                                   .addHeader("Authorization", YELP_API_KEY)
                                     .build();
                             return chain.proceed(newRequest);
                         }

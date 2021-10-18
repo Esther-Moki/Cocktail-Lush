@@ -13,12 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CocktailLush">
         <activity
+            android:exported="true"
             android:name=".CocktailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.moringaschool.cocktaillush.MainActivity">
             </meta-data>
-            android:exported="true" />
         </activity>
         <activity
             android:name=".MainActivity"

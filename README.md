@@ -1,8 +1,10 @@
 # Cocktail Lush
 
-The Cocktail Lush project happens to be an Android app that allows you to search for recipes, images
-of specific cocktails, ingredients, filter by alcoholic, non alcoholic and more by fetching data from the
-Cocktails DB API,an API where one get data on alcohol & cocktails.
+The Cocktail Lush project happens to be a simple cocktail app written in java using android studio that allows
+you to search for recipes, images of specific cocktails, ingredients, filter by alcoholic, non alcoholic and more by fetching data from the
+Cocktails DB API,an API where one get data on alcohol & cocktails.When a cocktail is clicked a new fragment
+appears that gives the user the drink name, ingredients , and directions on how to make the cocktail.
+
 
 * By Esther Moki
 * Date of current version:17/10/2021
@@ -44,3 +46,4 @@ If you run into any issues or have questions, ideas,concerns or even want to mak
 
 This document comes with <a href="https://github.com/Esther-Moki/Cocktail-Lush/blob/master/LICENSE" target="_blank">MIT Licence</a> . Find the License document attached to it to learn more about it.
 * Copyright (c) [2021] [Esther Moki]
+
