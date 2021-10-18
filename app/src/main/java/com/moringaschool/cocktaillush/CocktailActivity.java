@@ -87,25 +87,35 @@ public class CocktailActivity extends AppCompatActivity {
         call.enqueue(new Callback<CocktailSearchResponse>() {
             @Override
             public void onResponse(Call<CocktailSearchResponse> call, Response<CocktailSearchResponse> response) {
+                hideProgressBar();
                 if (response.isSuccessful()) {
+                    assert response.body() != null;
                     List<Drink> cocktailsList = response.body().getDrinks();
+                   // Log.d("response","response is" + cocktailsList) ;
+                    String[] drink = new String[cocktailsList.size()];
+                    String[] alcoholic = new String[cocktailsList.size()];
+                    String[] instructions = new String[cocktailsList.size()];
+                    String[] glass = new String[cocktailsList.size()];
 
-                    String[] cocktails = new String[cocktailsList.size()];
-                    String[]  categories = new String[cocktailsList.size()];
 
-                    for (int i = 0; i < cocktails.length; i++){
-                        cocktails[i] = cocktailsList.get(i).getStrDrink();
+                    for (int i = 0; i < drink.length; i++){
+                        drink[i] = cocktailsList.get(i).getStrDrink();
+                    }
+                    for (int i = 0; i < alcoholic.length; i++){
+                        alcoholic[i] = cocktailsList.get(i).getStrAlcoholic();
+                    }
+                    for (int i = 0; i < instructions.length; i++){
+                        instructions[i] = cocktailsList.get(i).getStrIBA();
+                    }
+                    for (int i = 0; i <  glass.length; i++){
+                        glass[i] = cocktailsList.get(i).getStrInstructions();
                     }
 
-                    for (int i = 0; i < categories.length; i++) {
-//                        Category category = cocktailsList.get(i).getStrCategory.get(0);
-//                        categories[i] = category.();
-                        cocktails[i] = cocktailsList.get(i).getStrCategory();
 
-                    }
+
 
                     ArrayAdapter adapter
-                            = new MyCocktailArrayAdapter(CocktailActivity.this, android.R.layout.simple_list_item_1, cocktails,categories);
+                            = new MyCocktailArrayAdapter(CocktailActivity.this, android.R.layout.simple_list_item_1, drink,alcoholic,instructions,glass);
                     mListView.setAdapter(adapter);
 
                     showCocktails();
