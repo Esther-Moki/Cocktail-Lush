@@ -1,8 +1,10 @@
-package com.moringaschool.cocktaillush;
+package com.moringaschool.cocktaillush.network;
 
 
 import static com.moringaschool.cocktaillush.Constants.YELP_API_KEY;
 import static com.moringaschool.cocktaillush.Constants.YELP_BASE_URL;
+
+import com.moringaschool.cocktaillush.network.CocktailApi;
 
 import java.io.IOException;
 

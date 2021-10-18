@@ -1,21 +1,24 @@
-package com.moringaschool.cocktaillush;
+package com.moringaschool.cocktaillush.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.icu.util.ULocale;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.moringaschool.cocktaillush.MyCocktailArrayAdapter;
+import com.moringaschool.cocktaillush.R;
+import com.moringaschool.cocktaillush.models.CocktailSearchResponse;
+import com.moringaschool.cocktaillush.models.Drink;
+import com.moringaschool.cocktaillush.network.CocktailApi;
+import com.moringaschool.cocktaillush.network.CocktailDbClient;
 
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

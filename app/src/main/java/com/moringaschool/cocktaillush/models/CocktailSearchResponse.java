@@ -1,10 +1,11 @@
 
-package com.moringaschool.cocktaillush;
+package com.moringaschool.cocktaillush.models;
 
 import java.util.List;
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.moringaschool.cocktaillush.models.Drink;
 
 @Generated("jsonschema2pojo")
 public class CocktailSearchResponse {

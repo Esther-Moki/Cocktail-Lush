@@ -1,4 +1,6 @@
-package com.moringaschool.cocktaillush;
+package com.moringaschool.cocktaillush.network;
+
+import com.moringaschool.cocktaillush.models.CocktailSearchResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

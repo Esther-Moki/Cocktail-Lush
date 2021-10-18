@@ -1,5 +1,5 @@
 
-package com.moringaschool.cocktaillush;
+package com.moringaschool.cocktaillush.models;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
