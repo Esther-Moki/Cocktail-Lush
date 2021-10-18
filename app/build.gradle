@@ -30,6 +30,10 @@ android {
             includeAndroidResources = true
         }
     }
+    buildTypes.each {
+        it.buildConfigField 'String', 'YELP_API_KEY', YelpApiKey
+    }
+f
 }
 
 dependencies {
