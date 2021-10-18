@@ -67,17 +67,17 @@ public class CocktailActivity extends AppCompatActivity {
        // MyCocktailArrayAdapter adapter = new MyCocktailArrayAdapter(this, android.R.layout.simple_list_item_1, cocktails, ingredients); // the arguments must match constructor's parameters!
        // mListView.setAdapter(adapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                String cocktail = ((TextView) view).getText().toString();
-                Toast.makeText(CocktailActivity.this, cocktail, Toast.LENGTH_LONG).show();
-            }
-        });
+//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+//                String cocktail = ((TextView) view).getText().toString();
+//                Toast.makeText(CocktailActivity.this, cocktail, Toast.LENGTH_LONG).show();
+//            }
+//        });
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        mNameTextView.setText("Here are all the " + name + " cocktails" );
+       // mNameTextView.setText("Here are all the " + name + " cocktails" );
 
         //API part
         CocktailApi client = CocktailDbClient.getClient();
