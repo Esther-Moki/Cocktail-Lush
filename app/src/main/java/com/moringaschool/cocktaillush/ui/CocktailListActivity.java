@@ -92,9 +92,9 @@ public class CocktailListActivity extends AppCompatActivity {
         call.enqueue(new Callback<CocktailSearchResponse>() {
             @Override
             public void onResponse(Call<CocktailSearchResponse> call, Response<CocktailSearchResponse> response) {
-                hideProgressBar();
+               hideProgressBar();
                 if (response.isSuccessful()) {
-                    assert response.body() != null;
+//                    assert response.body() != null;
                     //List<Drink> cocktailsList = response.body().getDrinks();
 
                     cocktails = response.body().getDrinks();
@@ -104,7 +104,7 @@ public class CocktailListActivity extends AppCompatActivity {
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
 
-
+                    showCocktails();
 
 
                    // Log.d("response","response is" + cocktailsList) ;
@@ -130,9 +130,6 @@ public class CocktailListActivity extends AppCompatActivity {
 //                    ArrayAdapter adapter
 //                            = new MyCocktailArrayAdapter(CocktailActivity.this, android.R.layout.simple_list_item_1, drink,alcoholic,instructions,glass);
 //                    mListView.setAdapter(adapter);
-
-                    showCocktails();
-
 
                 } else {
                     showUnsuccessfulMessage();
