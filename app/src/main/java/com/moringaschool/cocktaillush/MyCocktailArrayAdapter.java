@@ -32,8 +32,8 @@ public class MyCocktailArrayAdapter  extends ArrayAdapter {
 
 
         return String.format("%s \nThis cocktail is: %s", cocktail, alcoholic +
-                " \n It happens to be a: " + instructions +
-                " \n The set up instructions for this cocktail are: " + glass);
+                "\n It happens to be a: " + instructions +
+                "\n The set up instructions for this cocktail are: " + glass);
     }
 
     @Override

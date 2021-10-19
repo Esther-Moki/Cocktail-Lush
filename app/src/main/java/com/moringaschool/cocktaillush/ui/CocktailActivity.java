@@ -122,6 +122,8 @@ public class CocktailActivity extends AppCompatActivity {
                     mListView.setAdapter(adapter);
 
                     showCocktails();
+
+
                 } else {
                     showUnsuccessfulMessage();
                 }
