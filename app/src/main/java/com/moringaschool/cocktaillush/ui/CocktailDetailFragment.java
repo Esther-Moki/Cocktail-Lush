@@ -7,8 +7,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.moringaschool.cocktaillush.R;
+import com.moringaschool.cocktaillush.models.Drink;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,50 +29,61 @@ import com.moringaschool.cocktaillush.R;
  */
 public class CocktailDetailFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    @BindView(R.id.cocktailImageView) ImageView mImageLabel;
+    @BindView(R.id.cocktailNameTextView) TextView mNameLabel;
+    @BindView(R.id.cocktailClassTextView) TextView mClassLabel;
+    @BindView(R.id.instructionsTextView) TextView mInstructionsLabel;
+    @BindView(R.id.tagsTextView) TextView mTagsLabel;
+    @BindView(R.id.feedbackTextView) TextView mFeedbackLabel;
+    @BindView(R.id.categoryTextView) TextView mCategoryLabel;
+    @BindView(R.id.saveCocktailButton) TextView mSaveCocktailButton;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+    private Drink mCocktail;
+
+
 
     public CocktailDetailFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CocktailDetailFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
-    public static CocktailDetailFragment newInstance(String param1, String param2) {
-        CocktailDetailFragment fragment = new CocktailDetailFragment();
+    public static CocktailDetailFragment newInstance(Drink cocktail) {
+        CocktailDetailFragment cocktailDetailFragment = new CocktailDetailFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        args.putParcelable("cocktail", Parcels.wrap(cocktail));
+        cocktailDetailFragment.setArguments(args);
+        return cocktailDetailFragment;
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mCocktail = Parcels.unwrap(getArguments().getParcelable("cocktail"));
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cocktail_detail, container, false);
-    }
+        View view =  inflater.inflate(R.layout.fragment_cocktail_detail, container, false);
+            ButterKnife.bind(this, view);
+            Picasso.get().load(mCocktail.getStrDrinkThumb()).into(mImageLabel);
+
+            // List<String> drinks = new ArrayList<>();
+
+
+
+            mNameLabel.setText(mCocktail.getStrDrink());
+            mClassLabel.setText(mCocktail.getStrAlcoholic());
+            mInstructionsLabel.setText(mCocktail.getStrInstructions());
+            mTagsLabel.setText(mCocktail.getStrTags());
+            mFeedbackLabel.setText(mCocktail.getStrInstructionsIT());
+            mCategoryLabel.setText(mCocktail.getStrGlass());
+
+            return view;
+}
 }

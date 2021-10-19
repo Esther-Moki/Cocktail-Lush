@@ -7,12 +7,15 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.moringaschool.cocktaillush.models.Drink;
 
+import org.parceler.Parcel;
+
+@Parcel
 @Generated("jsonschema2pojo")
 public class CocktailSearchResponse {
 
     @SerializedName("drinks")
     @Expose
-    private List<Drink> drinks = null;
+    public List<Drink> drinks = null;
 
     /**
      * No args constructor for use in serialization

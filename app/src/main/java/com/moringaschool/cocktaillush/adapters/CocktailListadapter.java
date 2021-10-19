@@ -1,6 +1,7 @@
 package com.moringaschool.cocktaillush.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.cocktaillush.R;
 import com.moringaschool.cocktaillush.models.Drink;
+import com.moringaschool.cocktaillush.ui.CocktailDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -46,7 +50,7 @@ public class CocktailListadapter  extends RecyclerView.Adapter<CocktailListadapt
         return mCocktails.size();
     }
 
-    public class CocktailViewHolder extends RecyclerView.ViewHolder {
+    public class CocktailViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
         @BindView(R.id.cocktailImageView) ImageView mCocktailImageView;
         @BindView(R.id.cocktailNameTextView) TextView mNameTextView;
         @BindView(R.id.instructionsTextView) TextView mInstructionsTextView;
@@ -58,7 +62,7 @@ public class CocktailListadapter  extends RecyclerView.Adapter<CocktailListadapt
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
-            //itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
         }
 
         public void bindCocktail(Drink cocktail) {
@@ -66,6 +70,15 @@ public class CocktailListadapter  extends RecyclerView.Adapter<CocktailListadapt
             mNameTextView.setText(cocktail.getStrDrink());
             mInstructionsTextView.setText(cocktail.getStrInstructions());
             mCocktailClassTextView.setText("Type: " + cocktail.getStrAlcoholic());
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, CocktailDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("cocktails", Parcels.wrap(mCocktails));
+            mContext.startActivity(intent);
         }
     }
 }
