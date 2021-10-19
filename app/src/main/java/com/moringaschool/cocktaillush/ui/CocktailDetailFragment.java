@@ -1,5 +1,7 @@
 package com.moringaschool.cocktaillush.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -27,20 +29,27 @@ import butterknife.ButterKnife;
  * Use the {@link CocktailDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CocktailDetailFragment extends Fragment {
+public class CocktailDetailFragment extends Fragment implements View.OnClickListener {
 
-    @BindView(R.id.cocktailImageView) ImageView mImageLabel;
-    @BindView(R.id.cocktailNameTextView) TextView mNameLabel;
-    @BindView(R.id.cocktailClassTextView) TextView mClassLabel;
-    @BindView(R.id.instructionsTextView) TextView mInstructionsLabel;
-    @BindView(R.id.tagsTextView) TextView mTagsLabel;
-    @BindView(R.id.feedbackTextView) TextView mFeedbackLabel;
-    @BindView(R.id.categoryTextView) TextView mCategoryLabel;
-    @BindView(R.id.saveCocktailButton) TextView mSaveCocktailButton;
+    @BindView(R.id.cocktailImageView)
+    ImageView mImageLabel;
+    @BindView(R.id.cocktailNameTextView)
+    TextView mNameLabel;
+    @BindView(R.id.cocktailClassTextView)
+    TextView mClassLabel;
+    @BindView(R.id.instructionsTextView)
+    TextView mInstructionsLabel;
+    @BindView(R.id.tagsTextView)
+    TextView mTagsLabel;
+    @BindView(R.id.feedbackTextView)
+    TextView mFeedbackLabel;
+    @BindView(R.id.categoryTextView)
+    TextView mCategoryLabel;
+    @BindView(R.id.saveCocktailButton)
+    TextView mSaveCocktailButton;
 
 
     private Drink mCocktail;
-
 
 
     public CocktailDetailFragment() {
@@ -69,21 +78,29 @@ public class CocktailDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_cocktail_detail, container, false);
-            ButterKnife.bind(this, view);
-            Picasso.get().load(mCocktail.getStrDrinkThumb()).into(mImageLabel);
+        View view = inflater.inflate(R.layout.fragment_cocktail_detail, container, false);
+        ButterKnife.bind(this, view);
+        Picasso.get().load(mCocktail.getStrDrinkThumb()).into(mImageLabel);
 
-            // List<String> drinks = new ArrayList<>();
+        // List<String> drinks = new ArrayList<>();
 
 
+        mNameLabel.setText(mCocktail.getStrDrink());
+        mClassLabel.setText(mCocktail.getStrAlcoholic());
+        mInstructionsLabel.setText(mCocktail.getStrInstructions());
+        mTagsLabel.setText(mCocktail.getStrTags());
+        mFeedbackLabel.setText(mCocktail.getStrInstructionsIT());
+        mCategoryLabel.setText(mCocktail.getStrGlass());
 
-            mNameLabel.setText(mCocktail.getStrDrink());
-            mClassLabel.setText(mCocktail.getStrAlcoholic());
-            mInstructionsLabel.setText(mCocktail.getStrInstructions());
-            mTagsLabel.setText(mCocktail.getStrTags());
-            mFeedbackLabel.setText(mCocktail.getStrInstructionsIT());
-            mCategoryLabel.setText(mCocktail.getStrGlass());
+        return view;
+    }
 
-            return view;
-}
+    @Override
+    public void onClick(View v) {
+        if (v == mTagsLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mCocktail.getStrImageSource()));
+            startActivity(webIntent);
+        }
+    }
 }

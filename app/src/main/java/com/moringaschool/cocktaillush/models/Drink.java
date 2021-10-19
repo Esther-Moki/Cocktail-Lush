@@ -156,7 +156,7 @@ public class Drink{
 //    @SerializedName("strMeasure15")
 //    @Expose
 //    private Object strMeasure15;
-//    @SerializedName("strImageSource")
+    @SerializedName("strImageSource")
     @Expose
     private String strImageSource;
     @SerializedName("strImageAttribution")
