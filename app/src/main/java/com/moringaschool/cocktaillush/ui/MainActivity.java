@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v == mFindCocktailButton) {
             String name = mNameEditText.getText().toString();
-            Intent intent = new Intent(MainActivity.this, CocktailActivity.class);
+            Intent intent = new Intent(MainActivity.this, CocktailListActivity.class);
             intent.putExtra("name", name);
             startActivity(intent);
 

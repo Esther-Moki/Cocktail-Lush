@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.cocktaillush.R;
 import com.moringaschool.cocktaillush.models.Drink;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -57,9 +58,11 @@ public class CocktailListadapter  extends RecyclerView.Adapter<CocktailListadapt
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            //itemView.setOnClickListener(this);
         }
 
         public void bindCocktail(Drink cocktail) {
+            Picasso.get().load(cocktail.getStrDrinkThumb()).into(mCocktailImageView);
             mNameTextView.setText(cocktail.getStrDrink());
             mInstructionsTextView.setText(cocktail.getStrInstructions());
             mCocktailClassTextView.setText("Type: " + cocktail.getStrAlcoholic());

@@ -8,12 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.moringaschool.cocktaillush.MyCocktailArrayAdapter;
 import com.moringaschool.cocktaillush.R;
 import com.moringaschool.cocktaillush.adapters.CocktailListadapter;
 import com.moringaschool.cocktaillush.models.CocktailSearchResponse;
@@ -29,8 +26,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CocktailActivity extends AppCompatActivity {
-    private static final String TAG = CocktailActivity.class.getSimpleName();
+public class CocktailListActivity extends AppCompatActivity {
+    private static final String TAG = CocktailListActivity.class.getSimpleName();
 
 //    private TextView mNameTextView;
 //    private ListView mListView;
@@ -98,12 +95,12 @@ public class CocktailActivity extends AppCompatActivity {
                 hideProgressBar();
                 if (response.isSuccessful()) {
                     assert response.body() != null;
-                   // List<Drink> cocktailsList = response.body().getDrinks();
+                    //List<Drink> cocktailsList = response.body().getDrinks();
 
                     cocktails = response.body().getDrinks();
-                    mAdapter = new CocktailListadapter(CocktailActivity.this, cocktails);
+                    mAdapter = new CocktailListadapter(CocktailListActivity.this, cocktails);
                     mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(CocktailActivity.this);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(CocktailListActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
 
