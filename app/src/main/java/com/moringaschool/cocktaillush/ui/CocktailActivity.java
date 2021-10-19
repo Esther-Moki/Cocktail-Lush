@@ -1,6 +1,8 @@
 package com.moringaschool.cocktaillush.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.moringaschool.cocktaillush.MyCocktailArrayAdapter;
 import com.moringaschool.cocktaillush.R;
+import com.moringaschool.cocktaillush.adapters.CocktailListadapter;
 import com.moringaschool.cocktaillush.models.CocktailSearchResponse;
 import com.moringaschool.cocktaillush.models.Drink;
 import com.moringaschool.cocktaillush.network.CocktailApi;
@@ -32,14 +35,16 @@ public class CocktailActivity extends AppCompatActivity {
 //    private TextView mNameTextView;
 //    private ListView mListView;
 
-    @BindView(R.id.nameTextView) TextView mNameTextView;
-    @BindView(R.id.listView) ListView mListView;
+//  @BindView(R.id.listView) ListView mListView;
+   // @BindView(R.id.nameTextView) TextView mNameTextView;
+
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
 
     public List<Drink> cocktails;
-    public List<CocktailSearchResponse> categories;
+    private CocktailListadapter mAdapter;
 
 
 
@@ -93,33 +98,41 @@ public class CocktailActivity extends AppCompatActivity {
                 hideProgressBar();
                 if (response.isSuccessful()) {
                     assert response.body() != null;
-                    List<Drink> cocktailsList = response.body().getDrinks();
+                   // List<Drink> cocktailsList = response.body().getDrinks();
+
+                    cocktails = response.body().getDrinks();
+                    mAdapter = new CocktailListadapter(CocktailActivity.this, cocktails);
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(CocktailActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
+
+
+
+
                    // Log.d("response","response is" + cocktailsList) ;
-                    String[] drink = new String[cocktailsList.size()];
-                    String[] alcoholic = new String[cocktailsList.size()];
-                    String[] instructions = new String[cocktailsList.size()];
-                    String[] glass = new String[cocktailsList.size()];
+//                    String[] drink = new String[cocktailsList.size()];
+//                    String[] alcoholic = new String[cocktailsList.size()];
+//                    String[] instructions = new String[cocktailsList.size()];
+//                    String[] glass = new String[cocktailsList.size()];
 
 
-                    for (int i = 0; i < drink.length; i++){
-                        drink[i] = cocktailsList.get(i).getStrDrink();
-                    }
-                    for (int i = 0; i < alcoholic.length; i++){
-                        alcoholic[i] = cocktailsList.get(i).getStrAlcoholic();
-                    }
-                    for (int i = 0; i < instructions.length; i++){
-                        instructions[i] = cocktailsList.get(i).getStrIBA();
-                    }
-                    for (int i = 0; i <  glass.length; i++){
-                        glass[i] = cocktailsList.get(i).getStrInstructions();
-                    }
+//                    for (int i = 0; i < drink.length; i++){
+//                        drink[i] = cocktailsList.get(i).getStrDrink();
+//                    }
+//                    for (int i = 0; i < alcoholic.length; i++){
+//                        alcoholic[i] = cocktailsList.get(i).getStrAlcoholic();
+//                    }
+//                    for (int i = 0; i < instructions.length; i++){
+//                        instructions[i] = cocktailsList.get(i).getStrIBA();
+//                    }
+//                    for (int i = 0; i <  glass.length; i++){
+//                        glass[i] = cocktailsList.get(i).getStrInstructions();
+//                    }
 
-
-
-
-                    ArrayAdapter adapter
-                            = new MyCocktailArrayAdapter(CocktailActivity.this, android.R.layout.simple_list_item_1, drink,alcoholic,instructions,glass);
-                    mListView.setAdapter(adapter);
+//                    ArrayAdapter adapter
+//                            = new MyCocktailArrayAdapter(CocktailActivity.this, android.R.layout.simple_list_item_1, drink,alcoholic,instructions,glass);
+//                    mListView.setAdapter(adapter);
 
                     showCocktails();
 
@@ -153,8 +166,9 @@ public class CocktailActivity extends AppCompatActivity {
     }
 
     private void showCocktails() {
-        mListView.setVisibility(View.VISIBLE);
-        mNameTextView.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.VISIBLE);
+//        mListView.setVisibility(View.VISIBLE);
+//        mNameTextView.setVisibility(View.VISIBLE);
     }
 
     private void hideProgressBar() {
