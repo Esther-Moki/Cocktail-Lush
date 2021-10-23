@@ -17,34 +17,34 @@ public class Drink{
 
     @SerializedName("idDrink")
     @Expose
-    private String idDrink;
+    public String idDrink;
     @SerializedName("strDrink")
      @Expose
-     private String strDrink;
+     public String strDrink;
 //    @SerializedName("strDrinkAlternate")
 //    @Expose
 //    private Object strDrinkAlternate;
     @SerializedName("strTags")
     @Expose
-    private String strTags;
+    public String strTags;
     @SerializedName("strVideo")
 //    @Expose
 //    private Object strVideo;
 //    @SerializedName("strCategory")
     @Expose
-    private String strCategory;
+    public String strCategory;
     @SerializedName("strIBA")
     @Expose
-    private String strIBA;
+    public String strIBA;
     @SerializedName("strAlcoholic")
     @Expose
-    private String strAlcoholic;
+    public String strAlcoholic;
     @SerializedName("strGlass")
     @Expose
-    private String strGlass;
+    public String strGlass;
     @SerializedName("strInstructions")
     @Expose
-    private String strInstructions;
+    public String strInstructions;
   //  @SerializedName("strInstructionsES")
 //    @Expose
 //    private Object strInstructionsES;
@@ -56,7 +56,7 @@ public class Drink{
 //    private Object strInstructionsFR;
      @SerializedName("strInstructionsIT")
      @Expose
-     private String strInstructionsIT;
+     public String strInstructionsIT;
  //   @SerializedName("strInstructionsZH-HANS")
 //    @Expose
 //    private Object strInstructionsZHHANS;
@@ -65,7 +65,7 @@ public class Drink{
 //    private Object strInstructionsZHHANT;
     @SerializedName("strDrinkThumb")
     @Expose
-    private String strDrinkThumb;
+    public String strDrinkThumb;
     //@SerializedName("strIngredient1")
 //    @Expose
 //    private String strIngredient1;
@@ -158,16 +158,16 @@ public class Drink{
 //    private Object strMeasure15;
     @SerializedName("strImageSource")
     @Expose
-    private String strImageSource;
+    public String strImageSource;
     @SerializedName("strImageAttribution")
     @Expose
-    private String strImageAttribution;
+    public String strImageAttribution;
     @SerializedName("strCreativeCommonsConfirmed")
     @Expose
-    private String strCreativeCommonsConfirmed;
+    public String strCreativeCommonsConfirmed;
     @SerializedName("dateModified")
     @Expose
-    private String dateModified;
+    public String dateModified;
 
     /**
      * No args constructor for use in serialization
