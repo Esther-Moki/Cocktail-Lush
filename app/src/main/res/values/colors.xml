@@ -13,8 +13,10 @@
     <color name="colorTextIcons">#FFFFFF</color>
     <color name="colorAccent">#009688</color>
     <color name="colorPrimaryText">#212121</color>
-    <color name="colorSecondaryText">#727272</color>
+<!--    <color name="colorSecondaryText">#727272</color>-->
     <color name="colorDivider">#B6B6B6</color>
     <color name="colorAmber">#FFC300 </color>
-    <color name="colorBlue">#1B3EB7 </color>
+    <color name="colorBlue">#002888</color>
+    <color name="colorRed">#E0201D</color>
+
 </resources>
